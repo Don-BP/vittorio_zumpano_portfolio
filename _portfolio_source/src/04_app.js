@@ -369,10 +369,14 @@ addEventListener("resize",()=>{if(lb.classList.contains("open"))doFit();});
 /* ───────────────────────── video modal ───────────────────────── */
 const vm=$("#vm"), vmframe=$("#vmframe"), vmtitle=$("#vmtitle"), vmextra=$("#vmextra");
 const blobCache={};
+/* In the single-file build every clip is carried inside the page as text and
+   has to be decoded before it can play. In the web build VID already holds
+   ordinary file paths, so the browser just streams them. */
 function blobFor(key){
+  const v=VID[key]; if(!v) return null;
+  if(VID_ARE_URLS) return v;
   if(blobCache[key]) return blobCache[key];
-  const b64=VID[key]; if(!b64) return null;
-  const bin=atob(b64), len=bin.length, buf=new Uint8Array(len);
+  const bin=atob(v), len=bin.length, buf=new Uint8Array(len);
   for(let i=0;i<len;i++) buf[i]=bin.charCodeAt(i);
   const url=URL.createObjectURL(new Blob([buf],{type:"video/mp4"}));
   blobCache[key]=url; return url;
@@ -410,15 +414,25 @@ $$(".tile").forEach(tile=>{
   });
 });
 
-/* ── the logo animation runs on its own, all the time, no hover needed ── */
+/* ── the looping animations run on their own, no hover and no clicking.
+      They only wake up once they are near the screen, so a visitor who never
+      scrolls that far never downloads them. ── */
 $$("[data-loop]").forEach(v=>{
-  const u=blobFor(v.dataset.loop); if(!u) return;
-  v.src=u; v.muted=true; v.loop=true;
+  let wired=false;
   const start=()=>{ const p=v.play(); if(p&&p.catch) p.catch(()=>{}); };
-  start();
+  const wake=()=>{
+    if(wired) return; wired=true;
+    const u=blobFor(v.dataset.loop); if(!u) return;
+    v.src=u; v.muted=true; v.loop=true;
+    v.addEventListener("canplay",start,{once:true});
+    start();
+  };
+  new IntersectionObserver((es,o)=>{
+    if(!es[0].isIntersecting) return;
+    o.disconnect(); wake();
+  },{rootMargin:"300px"}).observe(v);
   /* browsers pause background tabs; pick it back up when the page returns */
-  document.addEventListener("visibilitychange",()=>{ if(!document.hidden) start(); });
-  v.addEventListener("canplay",start,{once:true});
+  document.addEventListener("visibilitychange",()=>{ if(!document.hidden&&wired) start(); });
 });
 
 /* ───────────────────────── mascots ───────────────────────── */

@@ -1,34 +1,60 @@
-import os, re, json, base64, sys
+import os, re, json, base64, sys, shutil
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC  = os.path.join(HERE, "src")
 OPT  = os.path.join(HERE, "opt")
 OUT  = r"D:\Don_Portfolio\Vittorio_Zumpano_Portfolio.html"
 
+# Two ways to build the same page.
+#
+#   python build_portfolio.py                 one self-contained file to email
+#   python build_portfolio.py --web <folder>  a small page plus an assets folder
+#
+# The single file is convenient to send but has to arrive whole - every picture
+# and clip in it, about fifty megabytes, before anything shows. The web build
+# writes the pictures alongside the page instead, so the page itself lands in a
+# moment and the browser fetches only what the visitor actually scrolls to.
+WEB_OUT = None
+if "--web" in sys.argv:
+    WEB_OUT = os.path.abspath(sys.argv[sys.argv.index("--web") + 1])
+    os.makedirs(os.path.join(WEB_OUT, "assets"), exist_ok=True)
+    OUT = os.path.join(WEB_OUT, "index.html")
+
 man = json.load(open(os.path.join(OPT, "manifest.json"), encoding="utf-8"))
-VID = {}          # key -> base64
+VID = {}          # key -> base64, or a relative url in web mode
 _imgcache = {}
 
 # Scanned the other way up from its own inside spread: the 2020 card's outside
-# needs turning 180° before it can be folded with the others.
+# needs turning 180 degrees before it can be folded with the others.
 ROT180 = {"art/ed2020_out.webp"}
 
-def datauri(rel):
-    if rel in _imgcache: return _imgcache[rel]
+def _bytes(rel):
     p = os.path.join(OPT, rel.replace("/", os.sep))
-    ext = os.path.splitext(rel)[1].lower()
-    mime = {".webp":"image/webp",".png":"image/png",".jpg":"image/jpeg",".jpeg":"image/jpeg"}[ext]
     if rel in ROT180:
         from PIL import Image
         import io as _io
         buf = _io.BytesIO()
         Image.open(p).rotate(180).save(buf, format="WEBP", quality=88)
-        raw = buf.getvalue()
+        return buf.getvalue()
+    return open(p, "rb").read()
+
+def asset(rel):
+    """A picture, addressed the way this build wants it: inlined as a data URI
+    for the single file, or written next to the page and referenced by name."""
+    if rel in _imgcache: return _imgcache[rel]
+    ext = os.path.splitext(rel)[1].lower()
+    if WEB_OUT:
+        name = rel.replace("/", "-")
+        with open(os.path.join(WEB_OUT, "assets", name), "wb") as f:
+            f.write(_bytes(rel))
+        u = "assets/" + name
     else:
-        raw = open(p, "rb").read()
-    u = "data:%s;base64,%s" % (mime, base64.b64encode(raw).decode())
+        mime = {".webp":"image/webp",".png":"image/png",".jpg":"image/jpeg",".jpeg":"image/jpeg"}[ext]
+        u = "data:%s;base64,%s" % (mime, base64.b64encode(_bytes(rel)).decode())
     _imgcache[rel] = u
     return u
+
+datauri = asset          # the old name, kept so nothing else has to change
 
 def aspect(rel):
     """Width / height of an image, so the 3D card can take the exact shape of
@@ -56,10 +82,17 @@ def poster(rel):
     return datauri("poster/" + name)
 
 def vidkey(rel):
+    """Videos are the bulk of the weight and most visitors never press play on
+    any of them, so in web mode they become plain files fetched on demand."""
     key = re.sub(r"[^A-Za-z0-9]", "_", os.path.splitext(os.path.basename(rel))[0])
     if key not in VID:
         p = os.path.join(OPT, rel.replace("/", os.sep))
-        VID[key] = base64.b64encode(open(p,"rb").read()).decode()
+        if WEB_OUT:
+            name = key + ".mp4"
+            shutil.copyfile(p, os.path.join(WEB_OUT, "assets", name))
+            VID[key] = "assets/" + name
+        else:
+            VID[key] = base64.b64encode(open(p, "rb").read()).decode()
     return key
 
 # Where the Brain Power site is live. The "open the site" button appears in the
@@ -226,16 +259,45 @@ extra_js = "Object.assign(T," + json.dumps(extra, ensure_ascii=False) + ");"
 
 html = (head + body +
         "\n<script>\n" + copy + "\n" + extra_js +
-        "\nconst VID=" + json.dumps(VID) + ";\n" +
+        "\nconst VID=" + json.dumps(VID) + ";" +
+        "\nconst VID_ARE_URLS=" + ("true" if WEB_OUT else "false") + ";\n" +
         app + "\n</script>\n</body>\n</html>\n")
+
+# The page is one big script and a single stray comma in the copy file takes
+# the whole thing out - silently, because Python is perfectly happy to write
+# broken JavaScript. Check it parses before it goes anywhere.
+def check_js(doc):
+    import subprocess, tempfile
+    a = doc.rindex("<script>") + len("<script>")
+    b = doc.rindex("</script>")
+    with tempfile.NamedTemporaryFile("w", suffix=".js", encoding="utf-8", delete=False) as t:
+        t.write(doc[a:b]); tmp = t.name
+    try:
+        r = subprocess.run(["node", "--check", tmp], capture_output=True,
+                           text=True, encoding="utf-8", errors="replace")
+    except FileNotFoundError:
+        print("  (node not found - skipped the JavaScript check)"); return
+    finally:
+        try: os.unlink(tmp)
+        except OSError: pass
+    if r.returncode:
+        raise SystemExit("JavaScript is broken, nothing written:\n" + (r.stderr or "")[:1200])
+
+check_js(html)
 
 with open(OUT, "w", encoding="utf-8") as f:
     f.write(html)
 
 size = os.path.getsize(OUT)
 print("WROTE %s" % OUT)
-print("  size    : %.1f MB" % (size/1048576))
-print("  images  : %d inlined" % len(_imgcache))
-print("  videos  : %d inlined" % len(VID))
+if WEB_OUT:
+    adir = os.path.join(WEB_OUT, "assets")
+    tot = sum(os.path.getsize(os.path.join(adir, f)) for f in os.listdir(adir))
+    print("  page    : %.0f KB   <- all a visitor waits for" % (size/1024))
+    print("  assets  : %d files, %.1f MB, fetched only as needed" % (len(os.listdir(adir)), tot/1048576))
+else:
+    print("  size    : %.1f MB" % (size/1048576))
+    print("  images  : %d inlined" % len(_imgcache))
+    print("  videos  : %d inlined" % len(VID))
 left = re.findall(r"@@[A-Z]+[^@]*@@", html)
 print("  unresolved tokens: %s" % (sorted(set(left)) if left else "none"))

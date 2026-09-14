@@ -1,0 +1,357 @@
+{
+ "shots": {
+  "hub": [
+   "shots/hub_00.webp",
+   "shots/hub_01.webp"
+  ],
+  "Admin_Dashboard": [
+   "shots/Admin_Dashboard_00.webp",
+   "shots/Admin_Dashboard_01.webp",
+   "shots/Admin_Dashboard_02.webp",
+   "shots/Admin_Dashboard_03.webp",
+   "shots/Admin_Dashboard_04.webp",
+   "shots/Admin_Dashboard_05.webp",
+   "shots/Admin_Dashboard_06.webp",
+   "shots/Admin_Dashboard_07.webp",
+   "shots/Admin_Dashboard_08.webp",
+   "shots/Admin_Dashboard_09.webp",
+   "shots/Admin_Dashboard_10.webp",
+   "shots/Admin_Dashboard_11.webp",
+   "shots/Admin_Dashboard_12.webp",
+   "shots/Admin_Dashboard_13.webp",
+   "shots/Admin_Dashboard_14.webp",
+   "shots/Admin_Dashboard_15.webp",
+   "shots/Admin_Dashboard_16.webp",
+   "shots/Admin_Dashboard_17.webp",
+   "shots/Admin_Dashboard_18.webp",
+   "shots/Admin_Dashboard_19.webp",
+   "shots/Admin_Dashboard_20.webp",
+   "shots/Admin_Dashboard_21.webp",
+   "shots/Admin_Dashboard_22.webp",
+   "shots/Admin_Dashboard_23.webp",
+   "shots/Admin_Dashboard_24.webp",
+   "shots/Admin_Dashboard_25.webp",
+   "shots/Admin_Dashboard_26.webp"
+  ],
+  "BP_CapNPlay": [
+   "shots/BP_CapNPlay_00.webp",
+   "shots/BP_CapNPlay_01.webp",
+   "shots/BP_CapNPlay_02.webp"
+  ],
+  "BP_Expo": [
+   "shots/BP_Expo_00.webp",
+   "shots/BP_Expo_01.webp",
+   "shots/BP_Expo_02.webp",
+   "shots/BP_Expo_03.webp",
+   "shots/BP_Expo_04.webp"
+  ],
+  "BP_Pay": [
+   "shots/BP_Pay_00.webp",
+   "shots/BP_Pay_01.webp"
+  ],
+  "BP_Planner": [
+   "shots/BP_Planner_00.webp",
+   "shots/BP_Planner_01.webp",
+   "shots/BP_Planner_02.webp"
+  ],
+  "BP_Roles": [
+   "shots/BP_Roles_00.webp",
+   "shots/BP_Roles_01.webp"
+  ],
+  "BP_Shout": [
+   "shots/BP_Shout_00.webp",
+   "shots/BP_Shout_01.webp",
+   "shots/BP_Shout_02.webp"
+  ],
+  "BP_Talk": [
+   "shots/BP_Talk_00.webp",
+   "shots/BP_Talk_01.webp",
+   "shots/BP_Talk_02.webp"
+  ],
+  "BP_Tango": [
+   "shots/BP_Tango_00.webp",
+   "shots/BP_Tango_01.webp",
+   "shots/BP_Tango_02.webp",
+   "shots/BP_Tango_03.webp"
+  ],
+  "BP_Tools": [
+   "shots/BP_Tools_00.webp",
+   "shots/BP_Tools_01.webp",
+   "shots/BP_Tools_02.webp",
+   "shots/BP_Tools_03.webp",
+   "shots/BP_Tools_04.webp"
+  ],
+  "Achievements": [
+   "shots/Achievements_00.webp"
+  ],
+  "ALT_guide": [
+   "shots/ALT_guide_00.webp",
+   "shots/ALT_guide_01.webp"
+  ],
+  "BP_Tax": [
+   "shots/BP_Tax_00.webp"
+  ],
+  "Wellness_hub": [
+   "shots/Wellness_hub_00.webp",
+   "shots/Wellness_hub_01.webp",
+   "shots/Wellness_hub_02.webp"
+  ],
+  "TalentDesk": [
+   "shots/TalentDesk_00.webp",
+   "shots/TalentDesk_01.webp",
+   "shots/TalentDesk_02.webp"
+  ],
+  "BPWEB": [
+   "shots/BPWEB_00.webp",
+   "shots/BPWEB_01.webp",
+   "shots/BPWEB_02.webp",
+   "shots/BPWEB_03.webp",
+   "shots/BPWEB_04.webp",
+   "shots/BPWEB_05.webp",
+   "shots/BPWEB_06.webp"
+  ],
+  "ALTHB": [
+   "shots/ALTHB_00.webp",
+   "shots/ALTHB_01.webp",
+   "shots/ALTHB_02.webp"
+  ]
+ },
+ "art": {
+  "poster39": "art/poster39.webp",
+  "poster38": "art/poster38.webp",
+  "flyer_kyoto": "art/flyer_kyoto.webp",
+  "ad_ohtani": "art/ad_ohtani.webp",
+  "ad_neyagawa": "art/ad_neyagawa.webp",
+  "ad_toyono": "art/ad_toyono.webp",
+  "ad_fb_ohtani": "art/ad_fb_ohtani.webp",
+  "ad_fb_takatsuki": "art/ad_fb_takatsuki.webp",
+  "ad_fb_it": "art/ad_fb_it.webp",
+  "cards40": "art/cards40.webp",
+  "logo_bp": "art/logo_bp.webp",
+  "logo_td": "art/logo_td.webp",
+  "logo_td_wide": "art/logo_td_wide.webp",
+  "ed2020_in": "art/ed2020_in.webp",
+  "ed2020_out": "art/ed2020_out.webp",
+  "stamp2023_in": "art/stamp2023_in.webp",
+  "stamp2023_out": "art/stamp2023_out.webp",
+  "seppi_in": "art/seppi_in.webp",
+  "seppi_out": "art/seppi_out.webp",
+  "poster_mashita": "art/poster_mashita.webp",
+  "don": "art/don.webp"
+ },
+ "mascot": {
+  "BiiPii": {
+   "img": "mascot/BiiPii.webp",
+   "vid": "mascot/BiiPii.mp4"
+  },
+  "Boo": {
+   "img": "mascot/Boo.webp",
+   "vid": "mascot/Boo.mp4"
+  },
+  "Dr Know": {
+   "img": "mascot/Dr_Know.webp",
+   "vid": "mascot/Dr_Know.mp4"
+  },
+  "Hammy": {
+   "img": "mascot/Hammy.webp",
+   "vid": "mascot/Hammy.mp4"
+  },
+  "Snicky": {
+   "img": "mascot/Snicky.webp",
+   "vid": "mascot/Snicky.mp4"
+  },
+  "Sugar": {
+   "img": "mascot/Sugar.webp",
+   "vid": "mascot/Sugar.mp4"
+  },
+  "Tip": {
+   "img": "mascot/Tip.webp",
+   "vid": "mascot/Tip.mp4"
+  },
+  "Group_animated": {
+   "vid": "mascot/Group_animated.mp4"
+  },
+  "bp_snap": {
+   "vid": "mascot/bp_snap.mp4"
+  }
+ },
+ "ppt": [
+  {
+   "title": "2021ED_Warmup",
+   "vid": "vid/ppt_2021ED_Warmup_483924.mp4",
+   "poster": "poster/ppt_2021ED_Warmup_483924.webp"
+  },
+  {
+   "title": "Coin Rush Final Can You",
+   "vid": "vid/ppt_Coin_Rush_Final_Can_You_261924.mp4",
+   "poster": "poster/ppt_Coin_Rush_Final_Can_You_261924.webp"
+  },
+  {
+   "title": "Dungeon 5th 6th Don reworked",
+   "vid": "vid/ppt_Dungeon_5th_6th_Don_reworked_535324.mp4",
+   "poster": "poster/ppt_Dungeon_5th_6th_Don_reworked_535324.webp"
+  },
+  {
+   "title": "Dungeon 5th 6th Don reworked",
+   "vid": "vid/ppt_Dungeon_5th_6th_Don_reworked_544524.mp4",
+   "poster": "poster/ppt_Dungeon_5th_6th_Don_reworked_544524.webp"
+  },
+  {
+   "title": "Halloween Science Lab reverse",
+   "vid": "vid/ppt_Halloween_Science_Lab_reverse_321824.mp4",
+   "poster": "poster/ppt_Halloween_Science_Lab_reverse_321824.webp"
+  },
+  {
+   "title": "Halloween Science Lab reverse",
+   "vid": "vid/ppt_Halloween_Science_Lab_reverse_331624.mp4",
+   "poster": "poster/ppt_Halloween_Science_Lab_reverse_331624.webp"
+  },
+  {
+   "title": "Hometown in Japan",
+   "vid": "vid/ppt_Hometown_in_Japan_235124.mp4",
+   "poster": "poster/ppt_Hometown_in_Japan_235124.webp"
+  },
+  {
+   "title": "Hot Air Balloon ducks",
+   "vid": "vid/ppt_Hot_Air_Balloon_ducks_301224.mp4",
+   "poster": "poster/ppt_Hot_Air_Balloon_ducks_301224.webp"
+  },
+  {
+   "title": "I like _ because v2",
+   "vid": "vid/ppt_I_like___because_v2_200524.mp4",
+   "poster": "poster/ppt_I_like___because_v2_200524.webp"
+  },
+  {
+   "title": "Monster Evolution Cute Compressed",
+   "vid": "vid/ppt_Monster_Evolution_Cute_Compressed_451324.mp4",
+   "poster": "poster/ppt_Monster_Evolution_Cute_Compressed_451324.webp"
+  },
+  {
+   "title": "Months Practice text fix",
+   "vid": "vid/ppt_Months_Practice_text_fix_360424.mp4",
+   "poster": "poster/ppt_Months_Practice_text_fix_360424.webp"
+  },
+  {
+   "title": "NH\u2464 He she can 3 hints quiz",
+   "vid": "vid/ppt_NH\u2464_He_she_can_3_hints_quiz_420924.mp4",
+   "poster": "poster/ppt_NH\u2464_He_she_can_3_hints_quiz_420924.webp"
+  },
+  {
+   "title": "Octo Fight",
+   "vid": "vid/ppt_Octo_Fight_461724.mp4",
+   "poster": "poster/ppt_Octo_Fight_461724.webp"
+  },
+  {
+   "title": "Octo Fight",
+   "vid": "vid/ppt_Octo_Fight_465824.mp4",
+   "poster": "poster/ppt_Octo_Fight_465824.webp"
+  },
+  {
+   "title": "Order a pizza",
+   "vid": "vid/ppt_Order_a_pizza_374324.mp4",
+   "poster": "poster/ppt_Order_a_pizza_374324.webp"
+  },
+  {
+   "title": "Power Tower 2022",
+   "vid": "vid/ppt_Power_Tower_2022_341624.mp4",
+   "poster": "poster/ppt_Power_Tower_2022_341624.webp"
+  },
+  {
+   "title": "Secret Image",
+   "vid": "vid/ppt_Secret_Image_435324.mp4",
+   "poster": "poster/ppt_Secret_Image_435324.webp"
+  },
+  {
+   "title": "Summer In Canada",
+   "vid": "vid/ppt_Summer_In_Canada_275024.mp4",
+   "poster": "poster/ppt_Summer_In_Canada_275024.webp"
+  },
+  {
+   "title": "Super Seppi Bros 5th 6th Dons Edit",
+   "vid": "vid/ppt_Super_Seppi_Bros_5th_6th_Dons_Edit_512624.mp4",
+   "poster": "poster/ppt_Super_Seppi_Bros_5th_6th_Dons_Edit_512624.webp"
+  },
+  {
+   "title": "Super Seppi Kart Ricky 5th 6th Don Rebuild",
+   "vid": "vid/ppt_Super_Seppi_Kart_Ricky_5th_6th_Don_Rebuild_523524.mp4",
+   "poster": "poster/ppt_Super_Seppi_Kart_Ricky_5th_6th_Don_Rebuild_523524.webp"
+  },
+  {
+   "title": "ThanksGiving",
+   "vid": "vid/ppt_ThanksGiving_291424.mp4",
+   "poster": "poster/ppt_ThanksGiving_291424.webp"
+  },
+  {
+   "title": "Tour Guide",
+   "vid": "vid/ppt_Tour_Guide_305924.mp4",
+   "poster": "poster/ppt_Tour_Guide_305924.webp"
+  },
+  {
+   "title": "Treasure Hunt Don Updated",
+   "vid": "vid/ppt_Treasure_Hunt_Don_Updated_390824.mp4",
+   "poster": "poster/ppt_Treasure_Hunt_Don_Updated_390824.webp"
+  },
+  {
+   "title": "What did she eat see",
+   "vid": "vid/ppt_What_did_she_eat_see_180924.mp4",
+   "poster": "poster/ppt_What_did_she_eat_see_180924.webp"
+  },
+  {
+   "title": "Young Class Self Intro Quiz",
+   "vid": "vid/ppt_Young_Class_Self_Intro_Quiz_270724.mp4",
+   "poster": "poster/ppt_Young_Class_Self_Intro_Quiz_270724.webp"
+  }
+ ],
+ "yt": [
+  {
+   "file": "Canada Gwam Interview (2).mp4",
+   "poster": "poster/yt_Canada_Gwam_Interview__2_.webp"
+  },
+  {
+   "file": "Christmas Quiz WIP4 (2).mp4",
+   "poster": "poster/yt_Christmas_Quiz_WIP4__2_.webp"
+  },
+  {
+   "file": "Hows The Weather (2).mp4",
+   "poster": "poster/yt_Hows_The_Weather__2_.webp"
+  },
+  {
+   "file": "Is it Yours Pink version (2).mp4",
+   "poster": "poster/yt_Is_it_Yours_Pink_version__2_.webp"
+  },
+  {
+   "file": "Jingle Bells Completed fixed (2).mp4",
+   "poster": "poster/yt_Jingle_Bells_Completed_fixed__2_.webp"
+  },
+  {
+   "file": "Prepositions with music and voice (2).mp4",
+   "poster": "poster/yt_Prepositions_with_music_and_voice__2_.webp"
+  },
+  {
+   "file": "Silhouette Quiz remake rearrange answers (2).mp4",
+   "poster": "poster/yt_Silhouette_Quiz_remake_rearrange_answers__2_.webp"
+  },
+  {
+   "file": "Travel and Say Hello (2).mp4",
+   "poster": "poster/yt_Travel_and_Say_Hello__2_.webp"
+  },
+  {
+   "file": "Yanagi Ai interview subtitles (2).mp4",
+   "poster": "poster/yt_Yanagi_Ai_interview_subtitles__2_.webp"
+  },
+  {
+   "file": "You Look Sick subs fixed with title (2).mp4",
+   "poster": "poster/yt_You_Look_Sick_subs_fixed_with_title__2_.webp"
+  }
+ ],
+ "ads": {
+  "ad_long": {
+   "vid": "vid/ad_long.mp4",
+   "poster": "poster/ad_long.webp"
+  },
+  "ad_short": {
+   "vid": "vid/ad_short.mp4",
+   "poster": "poster/ad_short.webp"
+  }
+ }
+}

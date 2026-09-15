@@ -56,6 +56,16 @@ body{
 }
 body.locked{overflow:hidden}
 
+/* The carousels and cards lean on a 3D tilt, and a rotated box measures wider
+   than its layout width, so on a narrow screen they push a little past the
+   right edge. overflow-x on <body> alone does not stop the viewport from
+   scrolling sideways — it has to be clipped at the root. clip rather than
+   hidden, because hidden would make <html> a scroll container and break the
+   sticky app text. Narrow screens only; the desktop layout never overflows. */
+@media(max-width:940px){
+  html{overflow-x:hidden;overflow-x:clip}
+}
+
 /* ============================ ATMOSPHERE ============================ */
 #atmo{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
 #atmo{--c1:#1b3f7a;--c2:#5a3410;--c3:#123a34}

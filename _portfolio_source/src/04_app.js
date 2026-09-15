@@ -192,10 +192,33 @@ if(matchMedia("(hover:hover)").matches){
 
 /* continuous, scroll-linked motion (video 1's zoom-through + parallax) */
 const heroWrap=$("#hero .wrap"), bigs=$$("h2.big"), cars=$$(".car");
+
+/* Below 940px the hero grid stacks and the portrait sits under the name, so
+   measuring the fade from raw scroll starts blurring his face while it is
+   still arriving. On those widths the fade is measured from the portrait
+   instead: sharp until its middle reaches the middle of the screen, then the
+   same curve over the same distance. Measured from layout offsets, not
+   getBoundingClientRect, because the hero itself is being transformed and
+   reading its moved position back would feed into itself. */
+const heroPortrait=$("#hero .portrait");
+const heroStacks=matchMedia("(max-width:940px)");
+let portraitMid=0;
+function measureHero(){
+  if(!heroPortrait){portraitMid=0;return;}
+  let t=0;
+  for(let n=heroPortrait;n;n=n.offsetParent) t+=n.offsetTop;
+  portraitMid=t+heroPortrait.offsetHeight/2;
+}
+measureHero();
+addEventListener("resize",measureHero,{passive:true});
+addEventListener("load",measureHero);
+
 function continuous(y){
   const vh=innerHeight;
   if(heroWrap){
-    const p=Math.max(0,Math.min(1,y/(vh*.92)));          /* 0..1 leaving the hero */
+    const p=heroStacks.matches&&portraitMid
+      ? Math.max(0,Math.min(1,(y+vh/2-portraitMid)/(vh*.92)))
+      : Math.max(0,Math.min(1,y/(vh*.92)));              /* 0..1 leaving the hero */
     const e=p*p;                                          /* accelerate away */
     heroWrap.style.setProperty("--hz",(1+e*.34).toFixed(4));
     heroWrap.style.setProperty("--hy",(-e*90).toFixed(1));

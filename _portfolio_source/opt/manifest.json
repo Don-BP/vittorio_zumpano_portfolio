@@ -114,6 +114,16 @@
    "shots/ALTHB_00.webp",
    "shots/ALTHB_01.webp",
    "shots/ALTHB_02.webp"
+  ],
+  "Fujie_Studio": [
+   "shots/Fujie_Studio_00.webp",
+   "shots/Fujie_Studio_01.webp",
+   "shots/Fujie_Studio_02.webp",
+   "shots/Fujie_Studio_03.webp",
+   "shots/Fujie_Studio_04.webp",
+   "shots/Fujie_Studio_05.webp",
+   "shots/Fujie_Studio_06.webp",
+   "shots/Fujie_Studio_07.webp"
   ]
  },
  "art": {
@@ -232,9 +242,9 @@
    "poster": "poster/ppt_Months_Practice_text_fix_360424.webp"
   },
   {
-   "title": "NH\u2464 He she can 3 hints quiz",
-   "vid": "vid/ppt_NH\u2464_He_she_can_3_hints_quiz_420924.mp4",
-   "poster": "poster/ppt_NH\u2464_He_she_can_3_hints_quiz_420924.webp"
+   "title": "NH⑤ He she can 3 hints quiz",
+   "vid": "vid/ppt_NH⑤_He_she_can_3_hints_quiz_420924.mp4",
+   "poster": "poster/ppt_NH⑤_He_she_can_3_hints_quiz_420924.webp"
   },
   {
    "title": "Octo Fight",

@@ -50,6 +50,7 @@ const PAL={
   web:["#6a2a5a","#1f5a8a","#5a3410"], ai:["#4a1f7a","#6a1f5a","#1b3f7a"],
   video:["#7a1f1f","#6a3a10","#3a1f5a"], ppt:["#6a3a10","#7a5a10","#3a2a10"],
   mascot:["#6a2a5a","#123a34","#5a3410"], design:["#123c8a","#6a4a10","#1b3f7a"],
+  fuji:["#0e4a5a","#123c8a","#0f3949"],
   event:["#6a1f6a","#3a1f7a","#1f3a6a"], hr:["#2a2f3a","#5a3410","#1b3f7a"],
   close:["#5a3410","#1b3f7a","#123a34"]};
 const atmo=$("#atmo"); let curPal="";

@@ -109,7 +109,7 @@ CAPS = {
  "ALT_guide":"ALT Guide", "BP_Tax":"Year-End Tax Helper", "Wellness_hub":"BP Wellness Hub",
  "Achievements":"BP Achievements", "BP_Tools":"BP-Tools", "BP_Expo":"BP-Expo",
  "BP_Talk":"BP-Talk", "BP_Shout":"BP-Shout", "BP_Planner":"BP-Planner",
- "BP_Tango":"BP-Tango", "BP_CapNPlay":"BP-Cap'N'Play", "BP_Pay":"BP-Pay", "BP_Roles":"BP-Roles", "BPWEB":"Brain Power website", "ALTHB":"ALT Guide (handbook)",
+ "BP_Tango":"BP-Tango", "BP_CapNPlay":"BP-Cap'N'Play", "BP_Pay":"BP-Pay", "BP_Roles":"BP-Roles", "Fujie_Studio":"Fujie Studio", "BPWEB":"Brain Power website", "ALTHB":"ALT Guide (handbook)",
 }
 
 def carousel(key, order=None):
